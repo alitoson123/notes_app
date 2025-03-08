@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/Widgets/Custom_model_buttom_sheet.dart';
 import 'package:notes_app/Widgets/custom_notes_body.dart';
 
 class HomeView extends StatelessWidget {
@@ -7,7 +8,19 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: CustomNotesBody()
+      body: CustomNotesBody(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            backgroundColor: Colors.white,
+            context: context,
+            builder: (context) {
+              return CustomModelButtomSheet();
+            },
+          );
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 }
