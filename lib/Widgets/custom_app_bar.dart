@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/Widgets/custom_buttom.dart';
+import 'package:notes_app/Widgets/custom_Icon.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});
@@ -15,7 +15,7 @@ class CustomAppBar extends StatelessWidget {
             style: TextStyle(fontSize: 28),
           ),
           Spacer(),
-          CustomButtom(),
+          CustomIcon(),
         ],
       ),
     );
