@@ -12,7 +12,7 @@ class HomeView extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           showModalBottomSheet(
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xff323232),
             context: context,
             builder: (context) {
               return CustomModelButtomSheet();
