@@ -24,7 +24,10 @@ class CustomModelButtomSheet extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              CustomButton(textbutton: 'Add', onpressed: () { },),
+              CustomButton(
+                textbutton: 'Add',
+                onpressed: () {},
+              ),
               SizedBox(
                 height: 40,
               ),
