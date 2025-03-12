@@ -1,3 +1,5 @@
+class NotesStates {}
+
 class initialStates extends NotesStates {}
 
 class NotesLoadingStates extends NotesStates {}
@@ -9,5 +11,3 @@ class NotesfailedStates extends NotesStates {
 
   NotesfailedStates({required this.messageError});
 }
-
-class NotesStates {}
