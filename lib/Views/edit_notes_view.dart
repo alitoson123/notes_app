@@ -19,11 +19,11 @@ class EditNotesView extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            CustomTextField(hintText: 'Title', maxsize: 1),
+            CustomTextField(hintText: 'Title', maxsize: 1, onChanged: (String ) {  },),
             SizedBox(
               height: 20,
             ),
-            CustomTextField(hintText: 'content', maxsize: 5),
+            CustomTextField(hintText: 'content', maxsize: 5, onChanged: (String ) {  },),
           ],
         ),
       ),
