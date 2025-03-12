@@ -9,7 +9,9 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: Scaffold(
         body: CustomNotesBody(),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -23,7 +25,7 @@ class HomeView extends StatelessWidget {
           },
           child: Icon(Icons.add),
         ),
-      
+      ),
     );
   }
 }
