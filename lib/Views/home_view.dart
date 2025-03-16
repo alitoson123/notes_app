@@ -9,22 +9,19 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: Scaffold(
-        body: CustomNotesBody(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showModalBottomSheet(
-              backgroundColor: Color(0xff323232),
-              context: context,
-              builder: (context) {
-                return CustomModelButtomSheet();
-              },
-            );
-          },
-          child: Icon(Icons.add),
-        ),
+    return Scaffold(
+      body: CustomNotesBody(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showModalBottomSheet(
+            backgroundColor: Color(0xff323232),
+            context: context,
+            builder: (context) {
+              return CustomModelButtomSheet();
+            },
+          );
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

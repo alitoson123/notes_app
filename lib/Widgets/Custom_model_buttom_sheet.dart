@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/Widgets/Custom_text_field.dart';
-import 'package:notes_app/Widgets/custom_button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:notes_app/Cubits/add_notes_cubit/add_notes_cubit.dart';
+import 'package:notes_app/Cubits/add_notes_cubit/add_notes_states.dart';
+import 'package:notes_app/Widgets/Custom_model_sheet_foorm.dart';
 
 class CustomModelButtomSheet extends StatefulWidget {
   const CustomModelButtomSheet({super.key});
@@ -10,66 +13,31 @@ class CustomModelButtomSheet extends StatefulWidget {
 }
 
 class _CustomModelButtomSheetState extends State<CustomModelButtomSheet> {
-  String? title, subtitle;
-  GlobalKey<FormState> mykey = GlobalKey();
-  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
-
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Form(
-        key: mykey,
-        autovalidateMode: autovalidateMode,
-        child: Container(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 40,
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: BlocConsumer<NotesCubit, NotesStates>(
+        listener: (context, state) {
+          if (state is NotesSuccessStates) {
+            Navigator.pop(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text('The notes is added successfully'),
+              ),
+            );
+            if (state is NotesfailedStates) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('failed, please try again'),
                 ),
-                CustomTextField(
-                  hintText: 'title',
-                  maxsize: 1,
-                  onChanged: (value) {
-                    title = value;
-                  },
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                CustomTextField(
-                  hintText: 'content',
-                  maxsize: 5,
-                  onChanged: (value) {
-                    subtitle = value;
-                  },
-                ),
-                SizedBox(
-                  height: 30,
-                ),
-                CustomButton(
-                  textbutton: 'Add',
-                  onpressed: () {
-                    if (mykey.currentState!.validate()) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text('Added'),
-                        ),
-                      );
-                    } else {
-                      autovalidateMode = AutovalidateMode.always;
-                      setState(() {});
-                    }
-                  },
-                ),
-                SizedBox(
-                  height: 40,
-                ),
-              ],
-            ),
-          ),
-        ),
+              );
+            }
+          }
+        },
+        builder: (context, state) {
+          return CustomModelSheetFoorm();
+        },
       ),
     );
   }
