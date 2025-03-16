@@ -28,7 +28,10 @@ class _CustomModelSheetFoormState extends State<CustomModelSheetFoorm> {
         autovalidateMode: autovalidateMode,
         child: Container(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.only(
+                left: 12,
+                right: 12,
+                bottom: MediaQuery.of(context).viewInsets.bottom),
             child: Column(
               children: [
                 SizedBox(
