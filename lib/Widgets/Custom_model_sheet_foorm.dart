@@ -57,10 +57,10 @@ class _CustomModelSheetFoormState extends State<CustomModelSheetFoorm> {
                 SizedBox(
                   height: 30,
                 ),
-                BlocBuilder<NotesCubit, NotesStates>(
+                BlocBuilder<AddNotesCubit, addNotesStates>(
                   builder: (context, state) {
                     return CustomButton(
-                      isLoading: State is NotesLoadingStates ? true : false,
+                      isLoading: State is addLoadingStates ? true : false,
                       textbutton: 'Add',
                       onpressed: () {
                         if (mykey.currentState!.validate()) {
@@ -70,9 +70,9 @@ class _CustomModelSheetFoormState extends State<CustomModelSheetFoorm> {
                               title: title!,
                               subtitle: subtitle!,
                               date: DateTime.now().toString(),
-                              color: Colors.blue.hashCode);
+                              color: Colors.blue.value);
 
-                          BlocProvider.of<NotesCubit>(context)
+                          BlocProvider.of<AddNotesCubit>(context)
                               .addNotesMethod(notesmodel: notemodelObject);
                         } else {
                           autovalidateMode = AutovalidateMode.always;

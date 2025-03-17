@@ -15,17 +15,17 @@ class _CustomModelButtomSheetState extends State<CustomModelButtomSheet> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NotesCubit(),
-      child: BlocConsumer<NotesCubit, NotesStates>(
+      create: (context) => AddNotesCubit(),
+      child: BlocConsumer<AddNotesCubit, addNotesStates>(
         listener: (context, state) {
-          if (state is NotesSuccessStates) {
+          if (state is addSuccessStates) {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text('The notes is added successfully'),
               ),
             );
-            if (state is NotesfailedStates) {
+            if (state is addfailedStates) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('failed, please try again'),
