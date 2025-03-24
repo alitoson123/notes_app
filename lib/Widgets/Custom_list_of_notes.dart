@@ -5,9 +5,14 @@ import 'package:notes_app/Cubits/read_notes_cubit/read_notes_states.dart';
 import 'package:notes_app/Models/notes_model.dart';
 import 'package:notes_app/Widgets/Custom_note_item.dart';
 
-class CustomListOfNotes extends StatelessWidget {
+class CustomListOfNotes extends StatefulWidget {
   const CustomListOfNotes({super.key});
 
+  @override
+  State<CustomListOfNotes> createState() => _CustomListOfNotesState();
+}
+
+class _CustomListOfNotesState extends State<CustomListOfNotes> {
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -21,6 +26,7 @@ class CustomListOfNotes extends StatelessWidget {
               padding: EdgeInsets.zero,
               itemCount: notesModelList.length,
               itemBuilder: (context, index) {
+               // setState(() {});
                 return CustomNoteItem(notesModelObject: notesModelList[index]);
               },
             ),
