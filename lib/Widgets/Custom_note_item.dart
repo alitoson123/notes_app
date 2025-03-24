@@ -50,7 +50,9 @@ class CustomNoteItem extends StatelessWidget {
                     ),
                   ),
                   trailing: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      notesModelObject.delete();
+                    },
                     icon: Icon(
                       Icons.delete,
                       color: Colors.black,
@@ -61,7 +63,7 @@ class CustomNoteItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 20, top: 8),
                   child: Text(
-                    notesModelObject.date.substring(0,10),
+                    notesModelObject.date.substring(0, 10),
                     style: TextStyle(
                       color: Colors.black.withValues(alpha: .5),
                       fontSize: 15,
