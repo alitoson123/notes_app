@@ -73,10 +73,11 @@ class _CustomModelSheetFoormState extends State<CustomModelSheetFoorm> {
                           mykey.currentState!.save();
 
                           var notemodelObject = NotesModel(
-                              title: title!,
-                              subtitle: subtitle!,
-                              date: DateTime.now().toString(),
-                              color: Colors.blue.value);
+                            title: title!,
+                            subtitle: subtitle!,
+                            date: DateTime.now().toString(),
+                          //  color: Colors.blue.value,
+                          );
 
                           BlocProvider.of<AddNotesCubit>(context)
                               .addNotesMethod(notesmodel: notemodelObject);

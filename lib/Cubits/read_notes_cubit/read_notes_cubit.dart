@@ -5,11 +5,11 @@ import 'package:notes_app/Models/notes_model.dart';
 
 class ReadNotesCubit extends Cubit<readNotesStates> {
   ReadNotesCubit() : super(readInitialState());
- List<NotesModel>? notesModelList;
+  List<NotesModel>? notesModelList;
+
   readNotesMethod() {
-    
     var hiveBox = Hive.box<NotesModel>('notes_box');
-     notesModelList = hiveBox.values.toList();
+    notesModelList = hiveBox.values.toList();
     emit(readSuccessState());
   }
 }

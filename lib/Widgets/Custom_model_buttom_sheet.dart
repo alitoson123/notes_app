@@ -20,7 +20,7 @@ class _CustomModelButtomSheetState extends State<CustomModelButtomSheet> {
       child: BlocConsumer<AddNotesCubit, addNotesStates>(
         listener: (context, state) {
           if (state is addSuccessStates) {
-            BlocProvider.of<ReadNotesCubit>(context).readNotesMethod(); 
+            BlocProvider.of<ReadNotesCubit>(context).readNotesMethod();
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(

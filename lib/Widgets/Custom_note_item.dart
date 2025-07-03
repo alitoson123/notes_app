@@ -18,14 +18,16 @@ class CustomNoteItem extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (context) {
-                return EditNotesView(notesModelObject: notesModelObject,);
+                return EditNotesView(
+                  notesModelObject: notesModelObject,
+                );
               },
             ),
           );
         },
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: Color(notesModelObject.color!),
             borderRadius: BorderRadius.circular(12),
           ),
           child: Padding(
@@ -54,7 +56,8 @@ class CustomNoteItem extends StatelessWidget {
                   trailing: IconButton(
                     onPressed: () {
                       notesModelObject.delete();
-                      BlocProvider.of<ReadNotesCubit>(context).readNotesMethod();
+                      BlocProvider.of<ReadNotesCubit>(context)
+                          .readNotesMethod();
                     },
                     icon: Icon(
                       Icons.delete,
